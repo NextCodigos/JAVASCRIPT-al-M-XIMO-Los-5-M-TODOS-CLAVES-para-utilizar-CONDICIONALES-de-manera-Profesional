@@ -3,34 +3,27 @@ brendan eich (creador de JavaScript)
 Ha trabajado en las empresas: netscape y brave
 */
 
-const NOMBRE="brendan";
-const APELLIDO="eich";
-const EMPRESA1="netscape";
-const EMPRESA2="brave";
+const NOMBRE = "brendan";
+const APELLIDO = "eich";
+const EMPRESA1 = "netscape";
+const EMPRESA2 = "brave";
 
 // Si el nombre escrito por el usuario es "brendan", el apellido es "eich" y ha trabajado en "netscape" o en "brave": escribe "Hola" y sino "Adios".
 
-document.querySelector(".boton").addEventListener("click", function () {
-  const NOMBRE = "brendan";
-  const APELLIDO = "eich";
-  const EMPRESA1 = "netscape";
-  const EMPRESA2 = "brave";
+document.querySelector(".boton").addEventListener("click", leer);
 
-  const nombreUsuario = document.getElementById("nombre").value.toLowerCase();
-  const apellidoUsuario = document
-    .getElementById("apellido")
-    .value.toLowerCase();
-  const empresaUsuario = document.getElementById("empresa").value.toLowerCase();
-
-  const caja2 = document.querySelector(".caja2");
+function leer() {
+  const CAMPO1 = document.querySelector("#nombre").value.trim().toLowerCase();
+  const CAMPO2 = document.querySelector("#apellido").value.trim().toLowerCase();
+  const CAMPO3 = document.querySelector("#empresa").value.trim().toLowerCase();
 
   if (
-    nombreUsuario === NOMBRE &&
-    apellidoUsuario === APELLIDO &&
-    (empresaUsuario === EMPRESA1 || empresaUsuario === EMPRESA2)
+    CAMPO1 === NOMBRE &&
+    CAMPO2 === APELLIDO &&
+    (CAMPO3 === EMPRESA1 || CAMPO3 === EMPRESA2)
   ) {
-    caja2.textContent = "Hola";
+    document.querySelector(".caja2").innerHTML = "Hola";
   } else {
-    caja2.textContent = "Adios";
+    document.querySelector(".caja2").innerHTML = "Adios";
   }
-});
+}
